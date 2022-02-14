@@ -1,13 +1,13 @@
-### Todo API
+## Todo API
 
-## Server/Backend
+### Server/Backend
 
 - Node/Express
 
-## Database
+### Database
 
 - MongoDB Atlas
 
-## Language
+### Language
 
 - JavaScript
