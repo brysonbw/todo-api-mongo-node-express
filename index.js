@@ -1,12 +1,11 @@
 const express = require("express")
 const cors = require('cors')
 const helmet = require('helmet')
-const mongoose = require("mongoose")
 require('dotenv').config()
 
 
-// mongoose/mongo db connect
-mongoose.connect(process.env.MONGODB_URI)
+// mongodb connect
+connectDB()
 
 // app
 const app = express()
