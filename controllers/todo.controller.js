@@ -1,9 +1,9 @@
-const TodoModel = require("../models/Todos")
+const Todo = require("../models/Todos")
 
 // get all todos
 module.exports.getTodosHandler = async (req, res) => {
     try {
-        const todos = await TodoModel.find({})
+        const todos = await Todo.find({})
         res.json(todos)
      } catch (error) {
          console.log(error)
@@ -15,7 +15,7 @@ module.exports.getTodosHandler = async (req, res) => {
 module.exports.createTodoHandler = async (req, res) => {
     try {
         const {title, description} = req.body
-        const newTodo = new TodoModel({
+        const newTodo = new Todo({
             title: title,
             description: description
         })
@@ -31,7 +31,7 @@ module.exports.createTodoHandler = async (req, res) => {
 module.exports.todoHandler = async (req, res) => {
     const { id } = req.params
     try {
-        const todo = await TodoModel.find({_id: id})
+        const todo = await Todo.find({_id: id})
         res.json(todo)
     } catch (error) {
         console.log(error)
@@ -44,14 +44,14 @@ module.exports.updateTodoHandler = async (req, res) => {
     try {
         const {id} = req.params
         const {title, description} = req.body
-        await TodoModel.updateOne({_id: id}, {
+        await Todo.updateOne({_id: id}, {
             $set: {
                 title: title,
                 description: description
             }
         })
 
-        const updatedTodo = await TodoModel.find({_id: id})
+        const updatedTodo = await Todo.find({_id: id})
          res.json(updatedTodo)
     } catch (error) {
         console.log(error)
@@ -63,7 +63,7 @@ module.exports.updateTodoHandler = async (req, res) => {
 module.exports.deleteTodoHandler = async (req, res) => {
     try {
         const {id} = req.params
-        await TodoModel.deleteOne({_id: id})
+        await Todo.deleteOne({_id: id})
         res.json("Todo successfully deleted!")
     } catch (error) {
         console.log(error)

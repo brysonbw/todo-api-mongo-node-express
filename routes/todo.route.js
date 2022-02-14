@@ -6,7 +6,7 @@ const {
     todoHandler,
     updateTodoHandler,
     deleteTodoHandler
-} = require("../controllers/todosController")
+} = require("../controllers/todo.controller")
 
 // routes
 

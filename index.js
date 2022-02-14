@@ -19,7 +19,7 @@ app.use(helmet())
 // routers
 
 // auth router
-const todoRouter = require('./routes/todos')
+const todoRouter = require('./routes/todo.route')
 
 
 // route
